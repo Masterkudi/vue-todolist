@@ -29,3 +29,9 @@ main {
 .title {
     margin-top: -300px;
 }
+
+.toDoItem-color {
+    width: 10px;
+    height: 40px;
+    display: inline-block;
+}

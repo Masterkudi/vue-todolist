@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="assets/css/todo.css">
     <title>To Do List</title>
 </head>
+
 <body>
     <div id="app">
         <header></header>
-<!--aggiungo una container per la copertina e il titolo-->
+        <!--aggiungo una container per la copertina e il titolo-->
         <main class="container pb-5">
             <h1 class="title" mb-3>To Do List</h1>
-<!--creo un div e inserisco all'interno un input con placeholder-->
-            <div class="mb-4 input-group"> 
-                <!--inserisco il v-model negli input per aggiungere gli oggetti dell'array-->              
-                <input type="text" class="form-control form-control-lg w-75" 
-                    placeholder="Inserisci nuovo elemento"  
-                    v-model="newToDoItem.text"> 
-                <input type="color" class="form-control form-control-lg"
-                    v-model="newToDoItem.color">
-<!--aggiungo un button per inserire gli item nella toDoList-->
-                <button class="btn btn-success" @click="addTodoItem"><i class="fa fa-plus fs-2"></i></button>                
+            <!--creo un div e inserisco all'interno un input con placeholder-->
+            <div class="mb-4 input-group">
+                <!--inserisco il v-model negli input per aggiungere gli oggetti dell'array-->
+                <input type="text" class="form-control form-control-lg w-75" placeholder="Inserisci nuovo elemento"
+                    v-model="newToDoItem.text">
+                <input type="color" class="form-control form-control-lg" v-model="newToDoItem.color">
+                <!--aggiungo un button per inserire gli item nella toDoList-->
+                <button class="btn btn-success" @click="addTodoItem"><i class="fa fa-plus fs-2"></i></button>
             </div>
-<!--definisco le caratteristiche della lista--> 
+            <!--definisco le caratteristiche della lista-->
             <div class="shadow-lg border rounded-4 overflow-hidden">
                 <ul class="list-group list-group-flush">
-<!--all'interno del tag <li> inserisco il v-for per aggiungere i vari elementi (item) della toDoList--> 
+                    <!--all'interno del tag <li> inserisco il v-for per aggiungere i vari elementi (item) della toDoList-->
                     <li class="list-group-item py-4 fs-4" v-for="todoItem in toDoList">
-                        {{ todoItem.text }}<!--doppia graffa {{mustache}} per riportare il testo dell'elemento item--> 
+                        <span class="todoItem-color" :style="{backgroundColor}"></span>
+                        {{ todoItem.text }}<!--doppia graffa {{mustache}} per riportare il testo dell'elemento item-->
                     </li>
                 </ul>
             </div>
@@ -41,4 +44,5 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="assets/js/todo.js"></script>
 </body>
+
 </html>

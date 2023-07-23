@@ -11,14 +11,18 @@ const app = createApp( {
                 text: "primo task",
                 color: "#ff00ff",
 
-            }]        
-        }
+            },
+          ],        
+        };
     },
 
     methods: {
         //aggiungo una funzione al pulsante
         addTodoItem() {
-            this.toDoList.push(this.newToDoItem)
+            //creando una copia dell'oggetto si perde la reattività
+            const itemClone = {...this.newToDoItem}
+            //qua non si pusha più il normale toDoItem ma il clone (itemClone)
+            this.toDoList.push(itemClone)
         }
-    }
+    },
 }).mount("#app")
